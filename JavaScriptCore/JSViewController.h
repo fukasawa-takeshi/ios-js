@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
 @interface JSViewController : UIViewController
-
 @end
