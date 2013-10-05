@@ -20,6 +20,7 @@
     
     [self invokeJavaScriptFromObjC];
     [self invokeJavaScriptFunctionFromObjC];
+    [self invokeObjeCFromJavaScript];
 
 }
 // --- Objective-CからJavaScriptを呼び出し
@@ -33,13 +34,14 @@
     // 結果
     NSLog(@"1 + 2 = %d", [result toInt32]);
 }
+
 - (void)invokeJavaScriptFunctionFromObjC
 {
     // JSContextオブジェクトを作成
     JSContext *context = [[JSContext alloc] init];
     // JavaScriptを評価
-    [context evaluateScript:@"function multiply(a,  b){return a*b;}"];
-    // multiply ファンクションをObjCのオブジェクト化
+    [context evaluateScript:@"function multiply(a, b){return a * b;}"];
+    // multiply ファンクションをJSValueインスタンスに
     JSValue *multiply = context[@"multiply"];
     // multiply用に引数を定義
     NSArray *args = @[[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
@@ -48,8 +50,26 @@
     
     // 結果
     NSLog(@"2 * 3 = %d", [result toInt32]);
-    
 }
+
+- (void)invokeObjeCFromJavaScript
+{
+    // JSContextオブジェクトを作成
+    JSContext *context = [[JSContext alloc] init];
+    // Blocks を定義して JSContext に設定
+    context[@"multiply"] = ^(int a,int b)
+    {
+        return a * b;
+    };
+    
+    NSString * jsCode = @"multiply(2,4);";
+    // multiply ファンクションを呼び出し
+    JSValue * result = [context evaluateScript:jsCode];
+    
+    // 結果
+    NSLog(@"2 * 4 = %d", [result toInt32]);
+}
+
 
 - (void)didReceiveMemoryWarning
 {

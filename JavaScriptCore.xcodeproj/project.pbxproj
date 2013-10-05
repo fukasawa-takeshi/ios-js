@@ -53,6 +53,7 @@
 		B144ACD517E73088002FCCDC /* JavaScriptCoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JavaScriptCoreTests-Info.plist"; sourceTree = "<group>"; };
 		B144ACD717E73088002FCCDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B144ACD917E73088002FCCDC /* JavaScriptCoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JavaScriptCoreTests.m; sourceTree = "<group>"; };
+		B144ACFD17E84E44002FCCDC /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +102,7 @@
 		B144ACAD17E73087002FCCDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B144ACFD17E84E44002FCCDC /* Social.framework */,
 				B144ACAE17E73087002FCCDC /* Foundation.framework */,
 				B144ACB017E73087002FCCDC /* CoreGraphics.framework */,
 				B144ACB217E73087002FCCDC /* UIKit.framework */,
