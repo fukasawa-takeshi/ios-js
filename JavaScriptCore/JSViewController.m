@@ -18,56 +18,59 @@
 {
     [super viewDidLoad];
     
-    [self invokeJavaScriptFromObjC];
-    [self invokeJavaScriptFunctionFromObjC];
-    [self invokeObjeCFromJavaScript];
+    [self invokeExploreObjects];
+    [self invokeUnderscoreJs];
+    [self invokeJquery];
 
 }
-// --- Objective-CからJavaScriptを呼び出し
-- (void)invokeJavaScriptFromObjC
+
+- (void)invokeUnderscoreJs
 {
     // JSContextオブジェクトを作成
     JSContext *context = [[JSContext alloc] init];
-    // 計算
-    JSValue *result = [context evaluateScript:@"1 + 2;"];
     
-    // 結果
-    NSLog(@"1 + 2 = %d", [result toInt32]);
-}
-
-- (void)invokeJavaScriptFunctionFromObjC
-{
-    // JSContextオブジェクトを作成
-    JSContext *context = [[JSContext alloc] init];
+    // underscore.js を NSString として読み込み
+    NSError *error = nil;
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"];
+    NSString *us = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    
     // JavaScriptを評価
-    [context evaluateScript:@"function multiply(a, b){return a * b;}"];
-    // multiply ファンクションをJSValueインスタンスに
-    JSValue *multiply = context[@"multiply"];
-    // multiply用に引数を定義
-    NSArray *args = @[[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
-    // multiply ファンクションを引数付きで呼び出し(引数無しの場合は callWithArguments の引数を nil に)
-    JSValue *result = [multiply callWithArguments:args];
-    
-    // 結果
-    NSLog(@"2 * 3 = %d", [result toInt32]);
+    [context evaluateScript:us];
+    JSValue *result = [context evaluateScript:@"_.isString(3);"];
+
+    NSLog(@"%@", result);
 }
 
-- (void)invokeObjeCFromJavaScript
+- (void)invokeJquery
 {
     // JSContextオブジェクトを作成
     JSContext *context = [[JSContext alloc] init];
-    // Blocks を定義して JSContext に設定
-    context[@"multiply"] = ^(int a,int b)
-    {
-        return a * b;
-    };
     
-    NSString * jsCode = @"multiply(2,4);";
-    // multiply ファンクションを呼び出し
-    JSValue * result = [context evaluateScript:jsCode];
+    // jQuery を NSString として読み込み
+    NSError *error = nil;
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"jquery-2.0.3.min" ofType:@"js"];
+    NSString *jq = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
     
-    // 結果
-    NSLog(@"2 * 4 = %d", [result toInt32]);
+    // JavaScriptを評価
+    [context evaluateScript:jq];
+    JSValue *result = [context evaluateScript:@"$.now()"];
+    
+    NSLog(@"%@", result);
+}
+-(void)invokeExploreObjects
+{
+    JSContext *context = [[JSContext alloc]init];
+    JSValue *result;
+    result = [context evaluateScript:@"window"];
+    NSLog(@"window = %@", result);
+    result = [context evaluateScript:@"XMLHttpRequest"];
+    NSLog(@"XMLHttpRequest = %@", result);
+    result = [context evaluateScript:@"var all=''; for(var s in this){all += s + ','} all;"];
+    NSLog(@"this = %@", result);
+    result = [context evaluateScript:@"Array"];
+    NSLog(@"Array = %@", result);
+    result = [context evaluateScript:@"new Date()"];
+    NSLog(@"new Date() = %@", result);
 }
 
 

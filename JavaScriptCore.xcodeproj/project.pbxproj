@@ -21,6 +21,10 @@
 		B144ACD017E73088002FCCDC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B144ACB217E73087002FCCDC /* UIKit.framework */; };
 		B144ACD817E73088002FCCDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B144ACD617E73088002FCCDC /* InfoPlist.strings */; };
 		B144ACDA17E73088002FCCDC /* JavaScriptCoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B144ACD917E73088002FCCDC /* JavaScriptCoreTests.m */; };
+		B1AC8A2F1800E431000E10CC /* jquery-2.0.3.min.js in Sources */ = {isa = PBXBuildFile; fileRef = B1AC8A2E1800E431000E10CC /* jquery-2.0.3.min.js */; };
+		B1AC8A301800E4CA000E10CC /* jquery-2.0.3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = B1AC8A2E1800E431000E10CC /* jquery-2.0.3.min.js */; };
+		B1AC8A3218013FEF000E10CC /* underscore-min.js in Sources */ = {isa = PBXBuildFile; fileRef = B1AC8A3118013FEF000E10CC /* underscore-min.js */; };
+		B1AC8A3318013FF5000E10CC /* underscore-min.js in Resources */ = {isa = PBXBuildFile; fileRef = B1AC8A3118013FEF000E10CC /* underscore-min.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,8 @@
 		B144ACD717E73088002FCCDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B144ACD917E73088002FCCDC /* JavaScriptCoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JavaScriptCoreTests.m; sourceTree = "<group>"; };
 		B144ACFD17E84E44002FCCDC /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		B1AC8A2E1800E431000E10CC /* jquery-2.0.3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-2.0.3.min.js"; path = "JavaScriptCore/js/jquery-2.0.3.min.js"; sourceTree = "<group>"; };
+		B1AC8A3118013FEF000E10CC /* underscore-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "underscore-min.js"; path = "JavaScriptCore/js/underscore-min.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,8 @@
 		B144ACA217E73087002FCCDC = {
 			isa = PBXGroup;
 			children = (
+				B1AC8A3118013FEF000E10CC /* underscore-min.js */,
+				B1AC8A2E1800E431000E10CC /* jquery-2.0.3.min.js */,
 				B144ACB417E73087002FCCDC /* JavaScriptCore */,
 				B144ACD317E73088002FCCDC /* JavaScriptCoreTests */,
 				B144ACAD17E73087002FCCDC /* Frameworks */,
@@ -231,6 +239,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AC8A3318013FF5000E10CC /* underscore-min.js in Resources */,
+				B1AC8A301800E4CA000E10CC /* jquery-2.0.3.min.js in Resources */,
 				B144ACC717E73087002FCCDC /* Images.xcassets in Resources */,
 				B144ACB917E73087002FCCDC /* InfoPlist.strings in Resources */,
 				B144ACC217E73087002FCCDC /* Main.storyboard in Resources */,
@@ -254,6 +264,8 @@
 			files = (
 				B144ACBB17E73087002FCCDC /* main.m in Sources */,
 				B144ACC517E73087002FCCDC /* JSViewController.m in Sources */,
+				B1AC8A3218013FEF000E10CC /* underscore-min.js in Sources */,
+				B1AC8A2F1800E431000E10CC /* jquery-2.0.3.min.js in Sources */,
 				B144ACBF17E73087002FCCDC /* JSAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,6 +475,7 @@
 				B144ACDF17E73088002FCCDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B144ACE017E73088002FCCDC /* Build configuration list for PBXNativeTarget "JavaScriptCoreTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +484,7 @@
 				B144ACE217E73088002FCCDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
